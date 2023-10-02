@@ -48,3 +48,37 @@ console.log(data)
 //   } else {
 //     alert("Kamu sudah usia lanjut")
 //   }
+
+// const talent = [
+//     {
+//       id: 1,
+//       name: "Mei Kristian Loli",
+//       isVip: false
+//     },
+//     {
+//       id: 2,
+//       name: "Ivan",
+//       isVip: true
+//     },
+//     {
+//       id: 3,
+//       name: "Silvi",
+//       isVip: false,
+//       hobby: [
+//         {
+//           id: 1,
+//           name: "tiktokan",
+//         },
+//         {
+//           id: 2,
+//           name: "rebahan",
+//         }
+//       ]
+//     }
+//   ]
+  
+//   console.log(talent)
+//   console.table(talent)
+//   console.log(talent[2].name)
+//   console.log(talent[2].name?.hobby[0].name)
+// console.log(talent[2].name, talent[2].isVip, talent[2].hobby[0].name)

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Contact</title>
+        <link rel="stylesheet" href="./task 1/css/style.css">
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <nav >
+            <div class="nav-left">
+                <ul>
+                    <img src="./task 1/images/logo.png">
+
+                    <li>
+                        <a href="./index.html"> Home</a>
+                    </li>
+                    <li>
+                        <a href="./myProject.html">My Project</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-right">
+                <a href="./contact_me.html">Contact me</a>
+            </div>
+           
+           
+        </nav>
+        <!-- END OF NAVBAR -->
+
+        
+        <section> 
+            <!-- THIS IS BLOG -->
+        <!-- FORM -->
+        <div class="blog">
+            <div class="blog_form">
+                <div class="blog_form_container">
+                    <form onsubmit="submitData(event)">
+                        <h1>ADD MY PROJECT</h1>
+                        <div>
+                            <label for ="projectname">Project Name</label>
+                            <input type= text id="projectname"/>
+                        </div>
+    
+                        <div class="date_group" id="date_group">
+                            <div>
+                            <label for="startdate">Start Date</label>
+                            <input type="date" id="startdate"/>
+                            </div>
+        
+                            <div>
+                                <label for="enddate">End Date</label>
+                                <input type="date" id="enddate"/>
+                            </div>
+        
+        
+                        </div>
+                        <div>
+    
+                            <label for="description">Description</label>
+                            <textarea id="description"></textarea>
+                        </div>
+    
+                        <div>
+                            <label>Technologies</label>
+                            <div class="checkbox_group" >
+
+                                <label for="nodejs"> Node Js</label>
+                                <input type="checkbox" name="thisistech" id="firstoption" value="nodejs">
+
+                                <label for="reactjs"> React Js</label>
+                                <input type="checkbox" name="thisistech" id="secondoption" value="reactjs">
+
+                                <label for="nextjs"> Next Js</label>
+                                <input type="checkbox" name="thisistech"id="thirdoption" value="nextjs">
+
+                                <label for="typescript"> Type Script</label>
+                                <input type="checkbox" name="thisistech"id="forthoption" value="typescript">
+
+                            </div>
+                        
+                        </div>
+    
+                        <div>
+                            <label>Upload Image</label>
+                                 <!-- <div class="input-blog-image-group">
+                                    <label for="input-blog-image">
+                                      <p>Attach File</p>
+                                      <img src="assets/images/file.png" alt="file" />
+                                    </label>
+                                    <input type="file" id="input-blog-image" hidden />
+                                 </div> -->
+                                 <div class="input_blog_image_group">
+                                 <label for="inputblogimage">
+                                    <!-- <p>attach here</p> -->
+                                    <img src="./task 1/images/file.png">
+                                </label>
+                                 <input type="file" id="uploadblogimage" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="submitbutton">
+                            <button>Submit</button>
+                            
+                        </div>
+                    </form>
+
+                </div>
+                </div>
+            </section>
+<!-- BLOG LIST -->
+
+<hr class="line" />
+<section>
+    <div class="blog-list" id="contents">
+        <!-- dynamic content would be here -->
+            <!-- <div class="container-card-project">
+                <div class="card-project-img">
+                    <img src="./img/tokopedia-clone.png">
+                </div>
+                <div class="card-project-title">Tokopedia Clone</div>
+                <div class="card-project-duration">Duration : 30 Days</div>
+                <div class="card-project-desc">
+                    <p>
+                        Belanja Apa Aja Pasti Hemat di Tokopedia! Selalu Ada, Selalu Bisa. Apapun Kebutuhanmu, Tokopedia Selalu Ada & Selalu Bisa Hemat. Bisa COD. Bebas Ongkir. Bisa Same Day Delivery.
+                    </p>
+                </div>
+                    <div class="card-project-tech">
+                        <div class="tech-option">
+                            <img src="./img/tech/nextjs.svg">
+                            <img src="./img/tech/reactjs.svg">
+                            <img src="./img/tech/nodejs.svg">
+                            <img src="./img/tech/typescript.svg">
+                        </div>
+                    </div>
+
+                    <div class="card-project-button">
+                        <button class="edit-button">Edit</button>
+                        <button class="delete-button">Delete</button>
+                    </div>
+                </div> -->
+           
+         <!-- ============================================================================================ -->
+
+                <div class="blog-list-item">
+                    <div class="container-title"> <h2>MY PROJECT</h2></div>
+                    <div class="container-content">
+
+                        <!-- for card styling -->
+                        <div class="card-project-1">
+                            <div class="container-card-project">
+                                
+                                <div class="card-project-img">
+                                    
+                                    <img src="task 1/images/blog-img.png" alt="" />
+                                </div>
+                              
+                    
+                                <div class="technology">
+                                  <div class="technology-option">
+                                      <img src="./task 1/images/nextjs.svg">
+                                      <img src="./task 1/images/reactjs.svg">
+                                      <img src="./task 1/images/nodejs.svg">
+                                      <img src="./task 1/images/typescript.svg">
+                                  </div>
+          
+                              </div>
+                                <h1>
+                                  <a href="blog-detail.html" target="_blank"
+                                    >Pasar Coding di Indonesia Dinilai Masih Menjanjikan</a
+                                  >
+                                </h1>
+                                
+                                <div class="detail-blog-content">
+                                  12 Jul 2021 22:30 WIB | zaki rosadi
+                                </div>
+                                <p>
+                                  Ketimpangan sumber daya manusia (SDM) di sektor digital masih
+                                  menjadi isu yang belum terpecahkan. Berdasarkan penelitian
+                                  ManpowerGroup, ketimpangan SDM global, termasuk Indonesia,
+                                  meningkat dua kali lipat dalam satu dekade terakhir. Lorem ipsum,
+                                  dolor sit amet consectetur adipisicing elit. Quam, molestiae
+                                  numquam! Deleniti maiores expedita eaque deserunt quaerat! Dicta,
+                                  eligendi debitis?
+                                </p>
+                                <div class="blog-content">
+                                    <div class="btn-group">
+                                      <button class="btn-edit">Edit Post</button>
+                                      <button class="btn-post">Post Blog</button>
+                                    </div>
+                                <div style="float:right; margin: 10px">
+                                  <p style="font-size: 15px; color:grey">1 minutes ago</p>
+                                </div>
+                              </div>
+                            </div>
+                            
+                        </div>
+                    
+                    </div>
+                  </div>
+            </div>
+</section>
+       
+
+    
+    </div> 
+    </section>
+    </body>
+    <script src="./task 1/javascript/blog.js"> </script>
+</html>
