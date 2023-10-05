@@ -37,6 +37,10 @@ let data= {
 console.log(data)
 
 }
+
+//testing=================================================
+
+
 // let name=("zaki")
 // console.log(name)
 // let myAge= 20
@@ -82,3 +86,83 @@ console.log(data)
 //   console.log(talent[2].name)
 //   console.log(talent[2].name?.hobby[0].name)
 // console.log(talent[2].name, talent[2].isVip, talent[2].hobby[0].name)
+
+
+
+
+// const MyBio = {
+//     name: "dandi saputra",
+//     age: 18,
+//     isMarried: false,
+//     distance: 2,
+//     myHobby: {
+//       hobby1: "coding",
+//       hobby2: "mobile legends",
+//       hobby3: "nonton anime"
+//     }
+//   }
+
+// function testing (nilai1, nilai2, nilai3){
+//     console.log(nilai1 + nilai2 * nilai3)
+// }
+
+// testing(10, 10, 10)
+
+
+// let myAge ="25"
+
+// if (myAge < 18){
+//     alert ("not adult")
+// }else{
+//     alert ("you are adult")
+// }
+
+// if (myAge ===25){              
+//     alert ("true")
+// } else {
+//     alert ("not true")
+// }
+
+// const dataMahasiswa = {
+//     name: "zaki",
+//     username: "yoii",
+//     age : 25,
+//     passion:"learning something new"
+// }
+
+// console.log (dataMahasiswa)
+// console.log (dataMahasiswa.age, dataMahasiswa.passion)
+// console.log ()
+
+
+// const array =["zaki", 18, "zuki", "alumni", "budiluhur University"]
+
+// console.log (array)
+// console.log (array[4])
+
+
+// const arrayOfObject = [
+//     {
+//         name:"zaki rosadi",
+//         age:25,
+//         height:168,
+//         skills: [
+//             {
+//                 id: 1,
+//                 first : "English language"
+//             },
+
+//             {
+//                 id:2,
+//                 second: "JavaScript Language",
+//                 other: "Html&css"
+//             }
+//         ]
+//     }
+// ]
+
+// console.log (arrayOfObject[0].name, arrayOfObject[0]?.skills[1])
+// console.log(arrayOfObject[0].skills)
+
+
+

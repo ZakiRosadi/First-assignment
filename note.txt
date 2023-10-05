@@ -8,7 +8,20 @@ Primitif => "String", Number (integer, floats), Boolean, Undefined, Null
 Conditional => Mengerjakan suatu task sesuai kondisi.
 Function => Block code yang memiliki tujuan tertentu.
 
+day4
+Type data non primitive => object yang memiliki fungsi dan property.
+Object => Kumpulan data.
+Array => Kumpulan data.
+Array of Object => Kumpulan data tapi object2nya beragam ada value ada string dst.
 
+type data non primitive.
+memiliki lebih dari satu typedata.
+type data yang kita buat.
+object, array, array of object.
+
+DAY 5
+
+=> Operator (aritmatic, comparation, ternary, gerbang logika)
 ====================================================
 var
 const 
@@ -124,7 +137,8 @@ function nameFunction() {
 
 nameFunction()
 
-deklarasi, eksekusi, parameter, argument, return
+deklarasi, eksekusi, parameter("tempat penampungan atau nilai sementar = mirip seperti variable),
+argument( isinya atau nilai dari isi), return
 
 function sayHello(value1, value2, value3, value4) {
   console.log(value1)
@@ -134,7 +148,7 @@ function sayHello(value1, value2, value3, value4) {
 
 sayHello(34, 21, 33)
 
-
+//arrow function//
 const greeting = () => {
   console.log("Say hello")
 }
@@ -159,6 +173,7 @@ const sum = (start, end) => {
 }
 
 console.log(sum(5, 10))
+
 DAY 4 (Recapt)
 
 conditonal => sebuah tugas yang kita kerjakan berdasarkan kondisi apa yang kita terima.
@@ -222,7 +237,7 @@ console.log(MyBio)
 console.info(typeof MyBio)
 console.info(typeof date)
 console.info(date)
-
+console.log(MyBio.name, MyBio.isMarried)
 
 Array 
 [] [] [] [] [] [] [] = 7 => array.length
@@ -246,7 +261,7 @@ const MyBio = {
   }
 }
 
-console.log(MyBio.name, MyBio.isMarried)
+
 
 array of object
 const myBio = ["Dandi", 18, true, { "id": 1, name: "laki-laki"}]
@@ -302,4 +317,111 @@ console.log("Hello world 5")
 for(let i = 0; i < 5; i++) {
   console.log(`Hello world ${i}`)
   console.log("Hello world " + i)
+}
+
+fungsi (+=) => to keep the data, so it cannot lose or dissapear
+
+//this is for script checkbutton or script
+let checkbox = document.getElementsByName("class name")
+let box =[]
+for (i=0; i<checkbox.length; i++){
+    if(checkbox[i].checked){
+        let initially =checkbox[i].value;
+
+        box.push(initially);
+    }
+}
+
+//this is looping for showing the picture
+let imgCheckBox=""; ==> 
+
+        for(let n=0; n < data[i].box.length ; n++){
+          imgCheckBox+=`
+          <img src="./task 1/images/${data[i].box[n]}.svg" width="30px">
+          `
+        }
+
+========================================================================================================
+DAY 5
+
+=> Operator (aritmatic, comparation, ternary, gerbang logika)
+
+const start = 10
+const end = 20
+const result = end % start
+
+console.log(result);
+
+
+let start = 10 + 20
+console.log(start);
+
+let end = 20
+console.log(end);
+
+start += end
+console.log(start);
+
+const result = start + end
+
+1
+2
+hasil 
+2
+
+1
+2
+hasilnya
+1
+2
+
+>
+<
+==
+>=
+<=
+!=
+===
+
+=, ==, ===
+
+let a = 1
+let b = "1"
+
+a === b
+
+
+
+
+const isVip = true
+const message = isVip ? "Kamu member vip" : "Minimal langganan bos"
+
+console.log(message)
+
+const isVip = true
+const pay = false
+const message = (!isVip) ? "Kamu member vip" : "Minimal langganan bos"
+
+console.log(message)
+
+const jodi = 22
+const juna = 34
+const silvi = 30
+
+// && = harus semua kodisi bernilai benar
+// || = minimal satu kodisi bernilai benar
+
+if(jodi < 40 || juna > 40 && silvi < 20) {
+  console.log("Mereka belum usia lanjut")
+} else {
+  console.log("Banyakin ibadah bang")
+}
+
+
+const MySon = false
+
+if(!MySon) {
+  console.log("Anak tetangga");
+} else {
+  console.log("anak saya");
 }
