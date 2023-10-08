@@ -1,0 +1,487 @@
+body {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dbdbdb;
+  padding: 0 40px;
+}
+
+.nav-left {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+
+.nav-left ul li {
+    margin-right: 30px;
+    font-size: 20px;
+    list-style-type: none;
+}
+.nav-left a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-left img {
+    margin-right: 50px;
+}
+
+.nav-left ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+
+.nav-right a {
+    background-color: black;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+
+
+/* new navbar responsive */
+#barsmenu{
+  display:none;
+}
+
+.hamburger-nav-container{
+  display: none;
+}
+
+.hamburger-nav-container a{
+ display: flex;
+ text-decoration: none;
+ background-color: grey;
+ padding: 5px;
+ margin: 5px;
+ border: 2px solid;
+ justify-content: center;
+ align-items: center;
+}
+
+.hamburger-nav-container .active-container{
+    background-color: rgb(88, 38, 213);
+    color: white;
+  }
+
+  /* form */
+form {
+    width: 350px;
+    margin: 100px auto;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #dbdbdb;
+  margin-top: 5px;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+  } 
+  form div {
+    margin-top: 10px;
+  }
+  
+  form label {
+    font-weight: bold;
+  }
+  
+  .submitbutton button {
+    background-color: black;
+    padding: 8px 20px;
+    color: white;
+    border: none;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+            
+  }
+  .submitbutton {
+    display:flex; 
+    justify-content:flex-end;
+  }
+
+
+/* blog */
+
+.blog_form {
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  }
+  
+  .blog_form .blog_form_container {
+  width: 600px;
+  }
+  
+  .blog_form .blog_form_container .date_group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .blog_form .blog_form-container h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  }
+  
+  .blog_form .blog_form_container label {
+  font-size: 20px;
+  font-weight: 400;
+  }
+  
+  .blog_form form input,textarea,select {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  background: #f4f3f3;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  }
+  
+  .blog_form form textarea {
+  height: 250px;
+  }
+
+  .blog_form .blog_form_container .checkbox_group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .blog_form form form .input_blog_image_group{
+      padding:0px 7px;
+      display:flex;
+      justify-content:start; 
+  }  
+  .blog_form .blog-img{
+    width:30px;
+  }
+  
+  /* .blog_form form .input_blog_image_group label p {
+  font-size: 15px;
+  } */
+  
+  /* .blog_form form .input_blog_image_group label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  } */
+  
+  /* .blog_form form .button-group {
+  text-align: right;
+  } */
+  
+  .blog_form form .submitbutton {
+    
+    color: white;
+    border: none;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  /* BLOG FORM list*/
+  /* .blog .blog-list {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    }
+    
+    .blog .blog-list .blog-list-item {
+    width: 80%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #dbdbdb;
+    border-radius: 8px;
+    display: flex;
+    }
+    
+    .blog .blog-list .blog-list-item .blog-image {
+    flex: 1;
+    }
+    
+    .blog .blog-list .blog-list-item .blog-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    }
+    
+    .blog .blog-list .blog-list-item .blog-content {
+    padding-left: 20px;
+    flex: 2;
+    }
+    
+    .blog .blog-list .btn-group {
+    text-align: right;
+    margin-bottom: 20px;
+    }
+    
+    .blog .blog-list .btn-group .btn-edit {
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 4px;
+    background: #dbdbdb;
+    }
+    
+    .blog .blog-list .btn-group .btn-post {
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 4px;
+    background: #ec4d37;
+    color: #fff;
+    }
+    
+    .blog .blog-list h1 a {
+    text-decoration: none;
+    color: #000000;
+    }
+    
+    .blog .blog-list .detail-blog-content {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 20px;
+    }
+    
+    .blog .blog-list .blog-list-item p {
+    margin-top: 20px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify;
+    } */
+
+
+/* this is blog list */
+/* .blog-list{
+  display:flex;
+  align-items:center;
+  flex-direction:column;
+  font-family:roboto;
+  color:#374151;  
+  padding:10px 100px;
+  margin: 10px;
+} */
+
+
+/* thiis is for blog-list */
+
+.section-blog {
+  background-color:#f5f5f5;
+    margin: 25px;
+    padding:20px;
+
+}
+.blog-list-item {
+  display:flex;
+  align-items:center;
+  flex-direction:column;
+  font-family:roboto;
+  color:#374151;  
+  padding:10px 100px;
+  margin: 10px;
+
+}
+
+/* first child */
+.container-title {
+  display:flex;
+  justify-content:center;
+  width:100%;
+  border-bottom: 2px solid #fe4e30;
+}
+
+/* second child */
+.container-content{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  column-gap:30px;
+}
+
+.container .container-content a{
+  text-decoration:none;
+  color:#374151;
+} 
+
+
+.container-content .card-project-1{
+  margin-top:20px;
+  padding:15px;
+  border:1px solid #9a9696;
+  border-radius:5px;
+  border:none;
+  outline:1px solid  #9a9696;
+  transition:0.4s ease;
+  cursor:pointer;
+}
+
+.container-content .card-project-1:hover{
+  background-color:#fe4e30;
+  /* outline:none; */
+  /* box-shadow: 1px 1px 2px rgba(0,0,0,0.5); */
+  color:black;
+}
+
+
+
+.container-card-project{
+   width:100%;
+   overflow:hidden;
+   background-color:transparent;
+   font-family:Poppins;
+   
+
+}
+.container-card-project img{
+  width:100%;
+  border-radius:3px;
+  margin-bottom:7px;
+}
+
+.card-project-title{
+  padding:0px 7px;
+  font-weight:bold;
+  font-size:17px
+
+}
+
+.card-project-duration{
+  padding:7px 7px;
+  font-size:12px
+
+
+ 
+
+}
+
+.card-project-desc{
+  padding:15px 7px;
+  font-size:14px;
+  text-align:justify;
+}
+
+.technology .technology-option{
+  padding:0px 7px;
+  display:flex;
+  justify-content:start;
+
+}
+
+.technology .technology-option img{
+  width:30px;
+}
+
+.btn-group{
+  padding:5px 5px;
+  display:flex;
+  justify-content:end;
+  gap:10px;
+}
+
+.btn-group .delete-button button{
+  padding:5px 12px;
+  border:none;
+  background-color:#073378;
+  color:white;
+  border-radius:3px;
+  cursor:pointer;
+  transition: 0.5s ease;
+  outline: 1px solid #fe4e30;
+  font-weight:bold;
+}
+
+.btn-group .btn-edit button{
+  padding:5px 20px;
+  border:none;
+  background-color:#073378;
+  color:white;
+  border-radius:3px;
+  cursor:pointer;
+  transition: 0.5s ease;
+  outline: 1px solid #fe4e30;
+}
+
+.container-content:hover .card-project-1:hover button{
+  background-color:white;
+  outline:1px solid white;
+  color:#fe4e30;
+
+}
+
+/* responsive */
+#barsmenu{
+    display:none;
+  }
+  
+  .hamburger-nav-container{
+    display: none;
+  }
+  
+  .hamburger-nav-container a{
+   display: flex;
+   text-decoration: none;
+   background-color: grey;
+   padding: 5px;
+   margin: 5px;
+   border: 2px solid;
+   justify-content: center;
+   align-items: center;
+  }
+  
+  .hamburger-nav-container .active-container{
+    background-color: rgb(88, 38, 213);
+    color: white;
+  }
+  
+  @media only screen and (max-width:900px){
+      .second-child {
+        margin: 0 auto;
+        order: 1;
+      }
+    
+      .container-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+    }
+    
+  
+  @media only screen and (max-width:550px){
+    .hidden-items {
+      display: none;
+    }
+    #barsmenu{
+      display: block;
+    }
+    .container-container{
+      flex-direction: column;
+    }
+    .hamburger-button a {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #000000;
+    }
+    
+  }
+  

@@ -425,3 +425,16 @@ if(!MySon) {
 } else {
   console.log("anak saya");
 }
+
+
+========================================================================
+Day 6
+Media only screen css => buat responsive
+
+Good evening. This is my first assignment in my first day as well. 
+                        I still have a dream of becoming 
+                        one of progammers in the world. 
+                        Therefore, I am gonna strive to learn about coding in Dumbways where everyone
+                        who shares similiar interest just like me get together. 
+                        This activity is not that easy to be honest :) but it
+                        does not mean it cannot be accomplished. I hope i can do this by participating in this wonderful bootcamp.
