@@ -2,17 +2,22 @@
 <html>
 
     <head>
+        <meta charset="utf-8">
         <title> Contact</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="./task 1/css/myProject.css">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+
+        <!-- <link rel="stylesheet" href="./task 1/css/myProject.css"> -->
     </head>
 
     <body>
         <!-- NAVBAR -->
-        <nav >
+        <!-- <nav >
             <div class="nav-left">
                 <ul>
                     <img src="./task 1/images/logo.png">
@@ -42,17 +47,49 @@
            
            
            
-        </nav>
+        </nav> -->
         <!-- END OF NAVBAR -->
-        <div class="hamburger-nav-container" id="hamburger-nav-container" >
+
+        <!-- navbar bootstrap -->
+        <nav class="navbar navbar-expand-lg bg-secondary">
+            <div class="container">
+              <a class="navbar-brand me-4" href="./index.html"><img src="./task 1/images/logo.png" alt="logo"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item me-2">
+                    <a class="nav-link" href="./index.html">Home</a>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a class="nav-link " href="./myProject.html">My Project</a>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a class="nav-link" href="./testimonials.html">testimonials</a>
+                  </li>
+                </ul>
+
+                <div class="d-flex">
+                    <a href="./contact_me.html" class="btn btn-danger">Contact Me</a>
+                </div>
+                
+              </div>
+            </div>
+          </nav>
+        <!-- navbar bootstrap end -->
+
+
+        <!-- <div class="hamburger-nav-container" id="hamburger-nav-container" >
             <a href="./index.html"> Home</a>
             <a href="./myProject.html">My Project</a>
             <a href="./contact_me.html" class="active-container">Contact me</a>
-        </div>
+        </div> -->
         
             <!-- THIS IS BLOG -->
         <!-- FORM -->
-        <div class="blog">
+        <!-- <div class="blog">
             <div class="blog_form">
                 <div class="blog_form_container">
                     <form onsubmit="submitData(event)">
@@ -103,17 +140,18 @@
     
                         <div>
                             <label>Upload Image</label>
-                                 <!-- <div class="input-blog-image-group">
+                                  <div class="input-blog-image-group">
                                     <label for="input-blog-image">
                                       <p>Attach File</p>
                                       <img src="assets/images/file.png" alt="file" />
                                     </label>
                                     <input type="file" id="input-blog-image" hidden />
                                  </div> -->
-                                 <div class="input_blog_image_group">
-                                 <label for="inputblogimage">
+                                 
+                                 <!-- <div class="input_blog_image_group">
+                                 <label for="inputblogimage"> -->
                                     <!-- <p>attach here</p> -->
-                                    <img src="./task 1/images/file.png">
+                                    <!-- <img src="./task 1/images/file.png">
                                 </label>
                                  <input type="file" id="uploadblogimage" accept="image/*">
                             </div>
@@ -125,23 +163,91 @@
 
                 </div>
                 </div>
-            </div>
+            </div>  -->
            
+<div class="container d-flex justify-content-center my-4">
+
+    <form class="w-75 p-3">
+        <h1 class="text-center"> ADD MY PROJECT</h1>
+        <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="Name" placeholder="Put your name here">
+        </div>
+
+        
+        <div class="d-flex row">
+            <div class="col-sm-6">
+                <label for="startDate">Start date</label>
+                <input id="startdate" class="form-control" type="date" />
+                
+            </div>
+            <div class="col-sm-6">
+                <label for="endDate">End date</label>
+                <input id="enddate" class="form-control" type="date" />
+                
+            </div>
+        </div>
+
+        <div class="mt-3 ">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" style="resize: none; height: 200px;"></textarea>
+          </div>
+
+            <div class="my-3">
+                <label for="description" class="form-label">Technologies</label>
+            </div>
+            <div class="d-flex colomn">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="nodejs" default>
+                    <label class="form-check-label" for="nodejs">nodejs</label>
+                    </div>
+                <div class="form-check ms-4">
+                    <input class="form-check-input" type="checkbox" value="" id="reactjs" default>
+                    <label class="form-check-label" for="reactjs">reactjs</label>
+                    </div>
+            </div>
+            <div class="d-flex colomn">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="nextjs" default>
+                    <label class="form-check-label" for="nextjs">nextjs</label>
+                    </div>
+                <div class="form-check ms-4">
+                    <input class="form-check-input" type="checkbox" value="" id="typescript" default>
+                    <label class="form-check-label" for="typescript">typescript</label>
+                    </div>
+            </div>
+
+            <div class="mt-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="file" class="form-control" id="image">
+              </div>
+
+              <div class="mt-3 d-flex justify-content-end">
+                <button type="submit" class="btn btn-danger">Submit</button>
+              </div>
+
+            
+        </form>
+</div>
+
+
+
+            
 <!-- BLOG LIST -->
 
-<hr class="line" />
-<div class="blog-list">
+<!-- <hr class="line" />
+<div class="blog-list"> -->
     <!-- dynamic content would be here -->
 
        
      <!-- ============================================================================================ -->
 
-            <div class="blog-list-item" >
+            <!-- <div class="blog-list-item" >
                 <div class="container-title" > <h2>MY PROJECT</h2></div>
-                <div class="container-content" id="contents">
+                <div class="container-content" id="contents"> -->
 
                     <!-- for card styling -->
-                    <div class="card-project-1">
+                    <!-- <div class="card-project-1">
                         <div class="container-card-project">
                             
                             <div class="card-project-img">
@@ -188,13 +294,16 @@
                           </div>
                         </div>
                         
-                    </div>
+                    </div> -->
                 
-                </div>
+                <!-- </div>
               </div>
-        </div>
+        </div> -->
        
     </body>
     <script src="./task 1/javascript/blog.js"> </script>
     <script src="./task 1/javascript/indexbutton.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </html>

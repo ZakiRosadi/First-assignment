@@ -5,64 +5,48 @@
         <title>
             Card
         </title>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./task 1/css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
 
-        <!-- <style  >
-        .picture {
-            display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color:azure;
-    border: 10px solid#3d3d3d;
-    padding: 10px;
-    margin: 10vh;
-    width: 100px auto;
-    
-        }
-        
-        </style> -->
     </head>
     
 
     <body>
        
          <!-- NAVBAR -->
-         <nav >
-            <div class="nav-left">
-                <ul>
-                    <img src="./task 1/images/logo.png">
+         <nav class="navbar navbar-expand-lg bg-secondary">
+            <div class="container">
+              <a class="navbar-brand me-4" href="./index.html"><img src="./task 1/images/logo.png" alt="logo"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
 
-                    <li>
-                        <a class="hidden-items" href="./index.html"> Home</a>
-                    </li>
-                    <li>
-                        <a class="hidden-items" href="./myProject.html">My Project</a>
-                    </li>
-                    <li>
-                        <a class="hidden-items" href="./testimonials.html">Testimonial</a>
-                    </li>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item me-2">
+                    <a class="nav-link" href="./index.html">Home</a>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a class="nav-link " href="./myProject.html">My Project</a>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a class="nav-link" href="./testimonials.html">testimonials</a>
+                  </li>
                 </ul>
-            </div>
 
-            <div class="nav-right">
-                <a class="hidden-items" href="./contact_me.html">Contact me</a>
+                <div class="d-flex">
+                    <a href="./contact_me.html" class="btn btn-danger">Contact Me</a>
+                </div>
+                
+              </div>
             </div>
-            <div class="nav-right" id="barsmenu">
-                <button class="hamburger-button" onclick="openhamburger()">
-                    <a class="fa-solid fa-bars"></a>
-
-                </button>
-            </div>
-            
-           
-           
-           
-        </nav>
+          </nav>
   <!-- END OF NAVBAR -->
 
         <div class="hamburger-nav-container" id="hamburger-nav-container" >
@@ -88,8 +72,8 @@
                         does not mean it cannot be accomplished. I hope i can do this by participating in this wonderful bootcamp.
                     </p>
                     <div class="contact-download">
-                        <button class="button-contact">contact</button> <br>
-                           <a href="file.doc">Download</a>
+                        <button class="button-contact" style="margin-right: 10px;">contact</button> <br>
+                           <a style="text-decoration: none;"href="file.doc">Download my cv here</a>
                     </div>
                     <div class="socialmedia">
                         <h1> You can check me on :</h1>
@@ -122,11 +106,16 @@
         </div>
             <!--this is the end of container  -->
 
-        
+  <hr class="line">      
 
-        <!-- <div class="picture"> -->
-    <!-- </div> -->
+        <div>
+            <h2 class="text-center"> THESE ARE MY PROJECTS</h2>
+        </div>
+
 
     </body>
     <script src="./task 1/javascript/indexbutton.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </html>
