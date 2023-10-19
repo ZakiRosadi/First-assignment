@@ -243,17 +243,10 @@ nav {
   
   }
 
-  .container-title h2{
-    justify-content: center;
-  }
+  
   
   /* first child */
-  .container-title {
-    display:flex;
-    justify-content:center;
-    width:100%;
-    border-bottom: 2px solid #fe4e30;
-  }
+  
   
   /* second child */
   .container-content{
