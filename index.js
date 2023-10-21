@@ -5,6 +5,7 @@ const app = express() // execute and save it in variable
 
 const config = require('./src/config/config.json')   //import connection
 const { Sequelize, QueryTypes} = require("sequelize") // import methods sequelize and QueryTYpes
+// const { UPDATE } = require('sequelize/types/query-types')
 const sequelize = new Sequelize(config.development)
 
 // console.log(config.development);
@@ -30,7 +31,7 @@ app.get('/myProject', myProject)
 app.post('/myProject', myProjectPost)
 app.get ('/delete-blog/:id', deleteBlog)
 app.get ('/update-blog/:id', UpdateBlog)
-app.get('/project_detail', projectDetail)
+app.get('/project_detail/:id', projectDetail)
 app.get('/testimonials', testimonials)
 
 
@@ -76,8 +77,11 @@ res.render ('myProject', { dataBlogs: manipulateData })  // dataBlogs is used fo
   }
 }
 
-function myProjectPost (req, res){
-   let  { projectname,description, startdate, enddate,nodejs,reactjs,nextjs,typescript} = req.body;
+
+
+async function myProjectPost (req, res){
+  try {
+    let  { projectname,description, startdate, enddate,nodejs,reactjs,nextjs,typescript} = req.body;
   //  const technologiesButton = req.body.progammingLanguage
 
 
@@ -129,8 +133,8 @@ function myProjectPost (req, res){
 
     const objectData = {
         projectname,
-        // startdate,
-        // enddate,
+        startdate,
+        enddate,
         totalDuration,
         description,
         // postedAt : new Date(),
@@ -143,31 +147,66 @@ function myProjectPost (req, res){
         // picture
     }
 
-    blogs.unshift(objectData)
-    console.log(blogs);
+    // const query = `INSERT INTO "blogs" ("projectname", "startdate","enddate",description","technologies", "picture", "createdAt", "updatedAt")
+    // VALUES ('${projectname}','${startdate}',${enddate}','${description}','${technologies}', '${picture}',NOW(),NOW())`
+    let query = `INSERT INTO "blogs" (projectname,"startdate","enddate",description,technologies,"createdAt", "updatedAt")
+    VALUES ('${objectData.projectname}','${objectData.startdate}','${objectData.enddate}','${objectData.description}','{${filteredData}}',NOW(),NOW())`
+
+    await sequelize.query(query, {type : QueryTypes.INSERT})
+
+    // blogs.unshift(objectData)
+    // console.log(blogs);
     res.redirect('/myProject')
+
+  } catch (error) {
+    console.log(error);
+  }
+   
 }
 
-function projectDetail (req, res){
-    res.render ('project_detail.hbs')
+async function projectDetail (req, res){
+  try {
+    const { id } = req.params
+    const query = `SELECT * from "blogs" WHERE id=${id}`
+    const dataObj = await sequelize.query(query, {type : QueryTypes.SELECT})
+    const dataDetail = dataObj.map((res) =>({
+      ...res,
+      author: "zaki rosadi"
+      
+    }))
+    
+    res.render ('project_detail', {detail : dataDetail[0]})
+  } catch (error) {
+    console.log(error);
+  }
 }
+
+// function projectDetail (req, res) {
+//   res.render ('project_detail')
+// }
 
 function testimonials (req, res){
     res.render ('testimonials')
 }
 
 //this function is used to manipulate data by id(index) which means the data is moved to another adress
-function deleteBlog (req, res){
+async function deleteBlog (req, res){
+  try {
     const { id } = req.params
-  console.log(id);
+    const query = `DELETE from "blogs" WHERE id=${id}`
+    await sequelize.query(query, {type : QueryTypes.DELETE})
 
-  blogs.splice(id, 1)
-  res.redirect('/myProject')
+    console.log(id);
+    res.redirect('/myProject')
+    } catch (error) {
+    
+  }
 }
 
-function UpdateBlog (req, res) {
-  const {id} = req.params
-  const updateBlogs= blogs[id];
+async function UpdateBlog (req, res) {
+  try {
+    const {id} = req.params
+  // const updateBlogs= blogs[id];
 
   let  { projectname,description, startdate, enddate,nodejs,reactjs,nextjs,typescript} = req.body;
   //  const technologiesButton = req.body.progammingLanguage
@@ -219,10 +258,10 @@ function UpdateBlog (req, res) {
 
     });
 
-    const objectData = {
+    const newData = {
         projectname,
-        // startdate,
-        // enddate,
+        startdate,
+        enddate,
         totalDuration,
         description,
         // postedAt : new Date(),
@@ -234,16 +273,18 @@ function UpdateBlog (req, res) {
         // technologies,
         // picture
     }
-blogs[id] = {
-  projectname: objectData.projectname,
-  totalDuration: objectData.totalDuration,
-  description: objectData.description,
-  logoTech : objectData.logoTech
-}
 
-blogs.splice (id, 1);
+let query = `UPDATE blogs SET projectname= '${newData.projectname}', startdate='${newData.startdate}', enddate='${newData.enddate}',description='${newData.description}', technologies='{${filteredData}}' WHERE id=${id}`
 
-  res.render ('update-blog', { dataBlogs : updateBlogs})
+ await sequelize.query(query, {type: QueryTypes.UPDATE})
+ res.render('update-blog')
+// blogs.splice (id, 1);
+
+//   res.render ('update-blog', { dataBlogs : updateBlogs})
+  } catch (error) {
+    console.log(error);
+  }
+  
 }
 
 

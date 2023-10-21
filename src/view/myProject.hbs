@@ -264,7 +264,7 @@
                            
                                 <div class="technology" id="logoTech">
                                 <div class="technology-option" >
-                                    {{#each this.logoTech}}
+                                    {{#each this.technologies}}
                                     <i class="{{this}}"></i>
                                     {{/each}}
                                     {{!-- <img src="/images/nextjs.svg">
@@ -276,7 +276,7 @@
                             
                             </div>
                                 <h1>
-                                <a href="blog-detail.html" target="_blank"
+                                <a href="project_detail/{{this.id}}" target="_blank"
                                     >{{this.projectname}}
                                 </a>
                                 </h1>
@@ -292,9 +292,9 @@
                                 </p>
                                 <div class="blog-content">
                                     <div class="btn-group">
-                                    <a href="./update-blog/{{@index}}" class="btn btn-secondary">Edit Post</a>
+                                    <a href="./update-blog/{{this.id}}" class="btn btn-secondary">Edit Post</a>
 
-                                    <a href="./delete-blog/{{@index}}" class="btn btn-danger">Delete Blog</a>
+                                    <a href="./delete-blog/{{this.id}}" class="btn btn-danger">Delete Blog</a>
                                     </div>
                                 <div style="float:right; margin: 10px">
                                 <p style="font-size: 15px; color:grey">1 minutes ago</p>

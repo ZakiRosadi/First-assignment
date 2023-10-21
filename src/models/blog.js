@@ -18,14 +18,14 @@ module.exports = (sequelize, DataTypes) => {
     startdate: DataTypes.DATE,
     enddate: DataTypes.DATE,
     description: DataTypes.STRING,
-    technologies: DataTypes.STRING,
+    technologies: DataTypes.array(DataTypes.STRING),
     picture: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'blog',
-    timestamps: true,
-    createdAt: true,
-    updatedAt: 'updateTimestamp'
+    // timestamps: true,
+    // createdAt: true,
+    // updatedAt: 'updateTimestamp'
   });
   return blog;
 };
