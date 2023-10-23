@@ -2,6 +2,11 @@ const express = require ('express') //import
 const path= require('path') //this is for file we want to address
 const app = express() // execute and save it in variable
 // const blogjs = require ('./src/mocks/myProject.json')
+const bcrypt = require('bcrypt')
+const session = require('express-session')// import session
+const flash = require('express-flash') //import flash
+const upload = require('./src/middlewares/uploadfile')
+
 
 const config = require('./src/config/config.json')   //import connection
 const { Sequelize, QueryTypes} = require("sequelize") // import methods sequelize and QueryTYpes
@@ -17,10 +22,28 @@ app.set ('view engine','hbs')  // innit hbs to node.js
 app.set ('views',path.join(__dirname, 'src/view'))  // to access hbs inside the view
 
 //set static file server
-app.use (express.static('src/task 1'))  // to get resource from folder
+app.use (express.static('src/task 1'))// to get resource from folder
+app.use(express.static('src/uploads'))  
 
 // parsing data from client
 app.use(express.urlencoded({ extended: false }))
+
+// setup flash
+app.use(flash())
+
+// setup session express
+app.use(session({
+  cookie: {
+    httpOnly: true,
+    secure: false,
+    maxAge: 1000 * 60 * 60 * 2
+  },
+  store: new session.MemoryStore(),
+  saveUninitialized: true,
+  resave: false,
+  secret: 'secret message'
+})
+)
 
 
 // service or routing
@@ -28,11 +51,20 @@ app.get('/', home)
 app.get('/contact_me_bootstrap', contactMeBootstrap)
 app.get('/contact_me', contactMe)
 app.get('/myProject', myProject)
-app.post('/myProject', myProjectPost)
+app.post('/myProject', upload.single('picture'), myProjectPost)
 app.get ('/delete-blog/:id', deleteBlog)
-app.get ('/update-blog/:id', UpdateBlog)
+
+app.post ('/update-blog/:id',upload.single('picture'), UpdateBlog)
+app.get('/update-blog/:id', formUpdateBlog)
+
 app.get('/project_detail/:id', projectDetail)
 app.get('/testimonials', testimonials)
+app.get('/register', formRegister)
+app.post('/register', postRegister)
+
+app.get('/login', formLogin)
+app.post('/login', postLogin)
+app.get('/logout', toLogout)
 
 
 //directing to port
@@ -47,7 +79,11 @@ app.get ('/zaki', (req, res) =>{
 
 //function
 function home (req, res){
-    res.render ('index')
+    res.render ('index',{
+    isLogin: req.session.isLogin,
+    user: req.session.user
+    })
+    
 }
 
 function contactMeBootstrap (req, res){
@@ -70,7 +106,9 @@ const manipulateData = objectDatabase.map ((res) => ({
   author : "zaki"
 }))
 
-res.render ('myProject', { dataBlogs: manipulateData })  // dataBlogs is used for hbs and blogs= blog's data
+res.render ('myProject', { dataBlogs: manipulateData,
+  isLogin: req.session.isLogin,
+  user: req.session.user }) 
 }catch(error){
     console.log(error);
 
@@ -149,8 +187,11 @@ async function myProjectPost (req, res){
 
     // const query = `INSERT INTO "blogs" ("projectname", "startdate","enddate",description","technologies", "picture", "createdAt", "updatedAt")
     // VALUES ('${projectname}','${startdate}',${enddate}','${description}','${technologies}', '${picture}',NOW(),NOW())`
-    let query = `INSERT INTO "blogs" (projectname,"startdate","enddate",description,technologies,"createdAt", "updatedAt")
-    VALUES ('${objectData.projectname}','${objectData.startdate}','${objectData.enddate}','${objectData.description}','{${filteredData}}',NOW(),NOW())`
+
+    const image = req.file.filename
+
+    let query = `INSERT INTO "blogs" (projectname,"startdate","enddate",description,technologies,picture,"createdAt", "updatedAt")
+    VALUES ('${objectData.projectname}','${objectData.startdate}','${objectData.enddate}','${objectData.description}','{${filteredData}}','${image}',NOW(),NOW())`
 
     await sequelize.query(query, {type : QueryTypes.INSERT})
 
@@ -203,6 +244,34 @@ async function deleteBlog (req, res){
   }
 }
 
+//get data blog
+async function formUpdateBlog (req, res) {
+  try {
+    const {id} = req.params
+    const query = `SELECT * FROM "blogs" WHERE id=${id}`
+    const formObject = await sequelize.query(query, {type : QueryTypes.SELECT})
+    let thisstartdate = formObject[0].startdate
+    let thisenddate = formObject[0].enddate
+
+    const newDataId = formObject.map((res) => ({
+      ...res,
+      newDateStart: new Date(thisstartdate).toISOString().split("T")[0],
+      newDateENd: new Date(thisenddate).toISOString().split("T")[0],
+    }));
+    res.render ('update-blog', {
+      dataUpdate : newDataId[0], 
+      id,
+      isLogin: req.session.isLogin,
+      user: req.session.user,
+    })
+
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+//update data blog and replace with the new one
 async function UpdateBlog (req, res) {
   try {
     const {id} = req.params
@@ -274,10 +343,13 @@ async function UpdateBlog (req, res) {
         // picture
     }
 
-let query = `UPDATE blogs SET projectname= '${newData.projectname}', startdate='${newData.startdate}', enddate='${newData.enddate}',description='${newData.description}', technologies='{${filteredData}}' WHERE id=${id}`
+    let picture = req.file.filename;
+    let query = `UPDATE public.blogs SET projectname= '${newData.projectname}', "startdate"='${newData.startdate}', "enddate"='${newData.enddate}',description='${newData.description}', technologies='{${filteredData}}',picture='${picture}' WHERE id=${id}`
 
  await sequelize.query(query, {type: QueryTypes.UPDATE})
- res.render('update-blog')
+
+ res.redirect ('/myProject')
+//  res.render('update-blog')
 // blogs.splice (id, 1);
 
 //   res.render ('update-blog', { dataBlogs : updateBlogs})
@@ -288,6 +360,70 @@ let query = `UPDATE blogs SET projectname= '${newData.projectname}', startdate='
 }
 
 
+function formRegister (req, res) {
+  res.render ('register')
+  // console.log(formRegister);
+}
+
+// input data from register form to database with method POST
+async function postRegister (req, res){
+  try {
+    const { name, email, password}= req.body
+
+    await bcrypt.hash(password, 10, (err, hashPassword) => {
+
+      const query= `INSERT INTO users (name, email, password, "createdAt", "updatedAt")
+       VALUES ('${name}','${email}','${hashPassword}', NOW(),NOW() )`
+
+       const obj= sequelize.query(query, {type : QueryTypes.INSERT})
+      //  console.log(query);
+       res.redirect ('/login')
+    })
+
+  } catch (error) {
+    console.log (error)
+  }
+}
+
+
+function formLogin (req, res){
+  res.render ('login')
+}
+
+
+async function postLogin (req, res){
+  try {
+    const {email, password} = req.body
+    const query = `SELECT * FROM users WHERE email='${email}'`
+
+    const obj= await sequelize.query(query, {type : QueryTypes.SELECT})
+    
+    if(!obj.length){
+      req.flash ('danger', "email is wrong")
+      return res.redirect('/login')
+    }
+
+    await bcrypt.compare(password, obj[0].password, (error, result) => {
+      if(!result){
+        req.flash ('danger', 'password is wrong')
+        return res.redirect('/login')
+      }else{
+        req.session.isLogin = true,
+        req.session.user = obj[0].name
+        req.flash('success', 'login success')
+        return res.redirect('/')
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+
+}
+
+function toLogout (req,res){
+  req.session.destroy();
+  res.redirect('/')
+}
 
 //data dummy
 const blogs = [

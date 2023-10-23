@@ -25,7 +25,7 @@ module.exports = {
       },
       technologies: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.ARRAY(Sequelize.STRING)
       },
       picture: {
         allowNull: false,
